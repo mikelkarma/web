@@ -49,17 +49,36 @@
       display: none;
     }
 
-    /* Parallax com imagem do Rick */
+    /* Parallax com GIF quadrado */
     .parallax {
       height: 100vh;
-      background: url('https://github.com/xwedx00/Portfolio-Website/blob/main/static/purple.gif') no-repeat center center fixed;
-      background-size: cover;
+      background-color: #111;
       position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .gif-container {
+      width: 300px;
+      height: 300px;
+      background-color: #222;
+      border: 2px solid #00ff99;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+    }
+
+    .gif-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .content {
       position: absolute;
-      top: 40%;
+      top: 30%;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
@@ -176,15 +195,19 @@
 
   <div class="terminal">
     <div class="terminal-content">
-      <span>_ Loading DigitalNoir...</span>
+      <span>_ Loading DigitalNoir...</span><br>
+                                      
       <span class="hidden-text">_ Initializing network connection...</span><br>
-                                                                            
       <span class="hidden-text">_ Access granted. Welcome to DigitalNoir.</span>
     </div>
   </div>
 
-  <!-- Parallax com a imagem do Rick Sanchez -->
+  <!-- Parallax com GIF quadrado -->
   <div class="parallax">
+    <div class="gif-container">
+      <!-- Substitua o caminho do GIF abaixo para o seu GIF quadrado -->
+      <img src="https://raw.githubusercontent.com/xwedx00/Portfolio-Website/refs/heads/main/static/purple.gif" alt="Cyberpunk GIF">
+    </div>
     <div class="content">
       <h1>Welcome to DigitalNoir</h1>
       <p>Your source for hacking, programming, and cyberpunk culture</p>
@@ -199,7 +222,7 @@
     <a href="#">Projects</a>
     <a href="#">Blog</a>
     <a href="#">Community</a>
-    <a onclick="closeSidebar()">Exit Explore</a>
+    <button class="btn-exit" onclick="closeSidebar()">Exit Explore</button>
   </div>
 
   <script>
