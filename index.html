@@ -50,14 +50,15 @@
     }
 
     /* Parallax com GIF quadrado */
-    .parallax {
-      height: 100vh;
-      background-color: #111;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    .parallax-gif {
+  position: absolute;
+  top: 50%; /* Ajuste conforme necessário */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px; /* Ajuste o tamanho conforme necessário */
+  height: auto;
+  z-index: 1; /* Coloque o GIF acima do conteúdo da página, se necessário */
+}
 
     .gif-container {
       width: 300px;
@@ -223,7 +224,7 @@
     <a href="#">Projects</a>
     <a href="#">Blog</a>
     <a href="#">Community</a>
-    <button class="btn-exit" onclick="closeSidebar()">Exit Explore</button>
+    <a onclick="closeSidebar()">Exit Explore</a>
   </div>
 
   <script>
