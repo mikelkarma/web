@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigitalNoir</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', monospace;
+      background-color: #111;
+      color: #00ff99;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    /* Efeito do terminal */
+    .terminal {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.9);
+      font-size: 1.5rem;
+      color: #00ff99;
+      border: 2px solid #00ff99;
+      box-shadow: 0 0 20px #00ff99;
+      z-index: 9999;
+    }
+
+    .terminal-content {
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #00ff99;
+      animation: blink 0.75s step-end infinite;
+    }
+
+    @keyframes blink {
+      0% { border-color: transparent; }
+      100% { border-color: #00ff99; }
+    }
+
+    .hidden-text {
+      display: none;
+    }
+
+    /* Parallax com imagem do Rick */
+    .parallax {
+      height: 100vh;
+      background: url('rick_sanchez_image.png') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+    }
+
+    .content {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      font-size: 2rem;
+      color: white;
+      text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99;
+    }
+
+    .btn {
+      background-color: #00ff99;
+      border: none;
+      color: black;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #00cccc;
+      transform: scale(1.1);
+    }
+
+    /* Menu lateral */
+    .sidebar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 100%;
+      background: #111;
+      padding: 20px;
+      color: #00ff99;
+      box-shadow: 5px 0 15px rgba(0, 255, 255, 0.2);
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+    }
+
+    .sidebar.open {
+      transform: translateX(0);
+    }
+
+    .sidebar a {
+      color: #00ff99;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      margin: 10px 0;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #00ff99;
+      color: black;
+    }
+
+    .sidebar .btn-exit {
+      background-color: #ff0033; /* Cor vermelha para o botão */
+      border: none;
+      color: white;
+      padding: 15px 20px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 30px;
+      text-align: center;
+      transition: background-color 0.3s, transform 0.3s;
+      box-shadow: 0 0 10px rgba(255, 0, 51, 0.8);
+    }
+
+    .sidebar .btn-exit:hover {
+      background-color: #e60029;
+      transform: scale(1.05);
+    }
+
+    /* Estilos responsivos */
+    @media (max-width: 768px) {
+      .content {
+        font-size: 1.2rem;
+      }
+
+      .terminal-content {
+        font-size: 1rem;
+      }
+
+      .btn {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .terminal-content {
+        font-size: 0.8rem;
+      }
+
+      .content {
+        font-size: 1rem;
+      }
+
+      .btn {
+        font-size: 0.7rem;
+        padding: 6px 12px;
+      }
+
+      .sidebar {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="terminal">
+    <div class="terminal-content">
+      <span>_ Loading DigitalNoir...</span>
+      <span class="hidden-text">_ Initializing network connection...</span><br>
+                                                                            
+      <span class="hidden-text">_ Access granted. Welcome to DigitalNoir.</span>
+    </div>
+  </div>
+
+  <!-- Parallax com a imagem do Rick Sanchez -->
+  <div class="parallax">
+    <div class="content">
+      <h1>Welcome to DigitalNoir</h1>
+      <p>Your source for hacking, programming, and cyberpunk culture</p>
+      <button class="btn" onclick="openSidebar()">Explore</button>
+    </div>
+  </div>
+
+  <!-- Menu Lateral -->
+  <div id="sidebar" class="sidebar">
+    <a href="#">Home</a>
+    <a href="#">Tutorials</a>
+    <a href="#">Projects</a>
+    <a href="#">Blog</a>
+    <a href="#">Community</a>
+    <a onclick="closeSidebar()">Exit Explore</a>
+  </div>
+
+  <script>
+    // Mostrar textos de terminal
+    let terminalContent = document.querySelector('.terminal-content');
+    let hiddenTexts = document.querySelectorAll('.hidden-text');
+    let currentIndex = 0;
+
+    function showNextText() {
+      if (currentIndex < hiddenTexts.length) {
+        hiddenTexts[currentIndex].classList.remove('hidden-text');
+        currentIndex++;
+        setTimeout(showNextText, 2000);
+      } else {
+        setTimeout(() => {
+          document.querySelector('.terminal').style.display = 'none';
+        }, 1000);
+      }
+    }
+
+    setTimeout(showNextText, 3000);
+
+    // Função para abrir o menu lateral
+    function openSidebar() {
+      document.getElementById('sidebar').classList.add('open');
+    }
+
+    // Função para fechar o menu lateral
+    function closeSidebar() {
+      document.getElementById('sidebar').classList.remove('open');
+    }
+  </script>
+
+</body>
+</html>
