@@ -51,23 +51,21 @@
 
     /* Parallax com GIF quadrado */
 /* Parallax com GIF quadrado */
+/* Parallax com GIF quadrado */
 .parallax {
-  height: 100vh;
+  height: 100vh; /* A altura ocupa toda a tela */
   background-color: #111;
-  position: relative;
   display: flex;
-  justify-content: center;
-  align-items: flex-start; /* Alinha o conteúdo ao topo */
-  flex-direction: column; /* Faz o conteúdo se organizar de cima para baixo */
+  flex-direction: column;
+  justify-content: center; /* Centraliza os itens verticalmente */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  text-align: center; /* Centraliza o texto */
 }
 
 .content {
-  text-align: center;
   font-size: 2rem;
   color: white;
   text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99;
-  margin-top: 50px; /* Ajuste a distância do texto do topo */
-  position: relative;
 }
 
 .gif-container {
@@ -87,6 +85,7 @@
   height: 100%;
   object-fit: cover;
 }
+
 
 
     
