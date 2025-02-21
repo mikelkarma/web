@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo_32x32.png">
+<link href="logo_32x32.png"
+         rel="shortcut icon" type="image/x-icon"/>
+      <link href="logo_256x256.png"
+         rel="apple-touch-icon"/>
+
+    <title>DigitalNoir - Blog de Hacking, Filosofia e Projetos</title>
+    <!-- Font Awesome icons -->
+    <script src="https://kit.fontawesome.com/a9cdbedf57.js" crossorigin="anonymous"></script>
+
+    <!-- Styling CSS -->
+    <!-- Theme 2 as default -->
+    <link rel="stylesheet" id="themeStylesheet" href="./assets/css/style-two.css">
+</head>
+<body>
+<header>
+    <div>
+        <a href="./index.html"><span class="logo">DigitalNoir - Blog</span></a>
+    </div>
+    <div>
+        <ul>
+            <li>
+                <a href="#home">Home</a>
+            </li>
+            <li>
+                <a href="#about">Sobre</a>
+            </li>
+            <li>
+                <a href="#projects">Projetos</a>
+            </li>
+            <li>
+                <a href="#contact">Contato</a>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div>
+            <div>
+                <h4 title="Explorando Hacking e Filosofia">Bem-vindo!</h4>
+                <h2 class="hero-section__title">Eu sou <span>Nous</span></h2>
+                <p class="hero-section__desc">Este é um espaço dedicado ao hacking ético, filosofias de vida, projetos e aprendizado contínuo. Vamos explorar as interseções entre tecnologia e reflexão</p>
+            </div>
+
+            <ul class="social-icons">
+                <!-- Social Icons -->
+                <li>
+                    <a href="https://fb.me/digitalnoir" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/digitalnoir" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                </li>
+                <li>
+                    <a href="https://instagram.com/digitalnoir" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/digitalnoir" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="hero-img">
+            <img src="logo.jpeg" alt="DigitalNoir-portfolio" width="350">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-img">
+            <img src="logo.jpeg" alt="DigitalNoir-portfolio"> 
+        </div>
+        <div class="about-content">
+            <h4>Sobre Mim</h4>
+            <h2>Sou um <br> <span>dev / hacker</span></h2>
+            <p>Apaixonado por hacking ético, filosofia de vida e o impacto da tecnologia na sociedade. Neste blog, compartilho meus projetos de código aberto, reflexões filosóficas e dicas sobre hacking e segurança cibernética. Meu objetivo é criar um espaço onde possamos aprender e crescer juntos, explorando as fronteiras entre a tecnologia e o pensamento.</p>
+        </div>
+    </section>
+    <section class="contact-section" id="contact">
+        <h2>Pesquisar Posts</h2>
+            <form action="#">
+                <div>
+                        <input type="text" name="name" id="searchInput" placeholder="Pesquisar..." onkeyup="searchPosts()"/>
+                </div>
+            </div>
+    </section>
+
+    <!-- Posts Section -->
+    <section class="projects-section" id="projects">
+        <h2>Meus <span>Posts</span></h2>
+        <div class="projects-cards" id="posts">
+            <div class="projects-card-box">
+                <div class="projects-card-box__icons">
+                </div>
+                <div class="projects-card-box__desc">
+                    <h4>Hacking Ético e Segurança</h4>
+                    <p>Explorando técnicas de hacking ético e a importância da segurança cibernética no mundo moderno.</p>
+                </div>
+                <div class="projects-card-box__buttons">
+                    <button class="btn btn-dark-outlined">
+                        <a href="https://digitalnoir.github.io/hacking-etico" target="_blank">Ver <i class="fa-solid fa-external-link"></i></a>
+                    </button>
+                </div>
+            </div>
+
+            <div class="projects-card-box">
+                <div class="projects-card-box__icons">
+                </div>
+                <div class="projects-card-box__desc">
+                    <h4>O mundo como um codigo</h4>
+                    <p>Reflexões sobre a vida como um sistema</p>
+               </div>
+                <div class="projects-card-box__buttons">
+                    <button class="btn btn-dark-outlined">
+                        <a href="/code" target="_blank">Ver <i class="fa-solid fa-external-link"></i></a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Script para buscar os posts -->
+    <script>
+        function searchPosts() {
+            var input, filter, postsSection, posts, title, description, i, txtValue;
+            input = document.getElementById('searchInput');
+            filter = input.value.toUpperCase();
+            postsSection = document.getElementById("posts");
+            posts = postsSection.getElementsByClassName('projects-card-box');
+
+            for (i = 0; i < posts.length; i++) {
+                title = posts[i].getElementsByTagName("h4")[0];
+                description = posts[i].getElementsByTagName("p")[0];
+                if (title || description) {
+                    txtValue = (title.textContent || title.innerText) + " " + (description.textContent || description.innerText);
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        posts[i].style.display = "";
+                    } else {
+                        posts[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+</main>
+
+<footer>
+    <p>Copyright &copy; 2025 - <a href="https://github.com/digitalnoir" target="_blank">DigitalNoir</a> - Todos os direitos reservados.</p>
+    <div class="footer-buttons">
+        <button data-theme="./assets/css/style.css" class="footer__theme1">Tema 1</button>
+        <button data-theme="./assets/css/style-two.css" class="footer__theme2 active-theme">Tema 2</button>
+        <button data-theme="./assets/css/style-three.css" class="footer__theme3">Tema 3</button>
+    </div>
+</footer>
+
+<!-- JS -->
+<script src="./assets/js/script.js"></script>
+
+</body>
+</html>
