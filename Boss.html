@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Bosses</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: monospace;
+      padding: 20px;
+    }
+
+    h1, h2 {
+      color: #76ff03;
+      font-size: 1.5em;
+    }
+
+    select, button {
+      background-color: #1e1e1e;
+      color: #fff;
+      border: 1px solid #444;
+      padding: 10px;
+      font-size: 1em;
+      margin-top: 10px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      background-color: #1a1a1a;
+      margin: 5px 0;
+      padding: 10px;
+      border-left: 4px solid #76ff03;
+      border-radius: 5px;
+    }
+
+    .container {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .box {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    @media screen and (max-width: 768px) {
+      h1, h2 {
+        font-size: 1.2em;
+      }
+
+      select, button {
+        font-size: 1em;
+      }
+
+      .container {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .box {
+        width: 100%;
+        min-width: unset;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Gerenciador de Bosses</h1>
+
+  <label for="servidorSelect">Selecione o servidor onde o boss morreu:</label><br>
+  <select id="servidorSelect"></select>
+  <button onclick="matarBoss()">Registrar Morte</button>
+
+  <div class="container">
+    <div class="box">
+      <h2>Bosses Vivos</h2>
+      <ul id="vivos"></ul>
+    </div>
+    <div class="box">
+      <h2>Bosses Mortos</h2>
+      <ul id="mortos"></ul>
+    </div>
+  </div>
+
+  <script>
+    const servidores = [
+      'na1','na2','na3','na4','na5','na6',
+      'sa1','sa2','sa3','sa4','sa5','sa6','sa7','sa8',
+      'asia1','asia2','asia3','asia4',
+      'europa1','europa2','europa3','europa4','europa5','europa6'
+    ];
+
+    let vivos = [];
+    let mortos = [];
+
+    function gerarBoss(servidor) {
+      return { servidor };
+    }
+
+    function iniciarBosses() {
+      servidores.forEach(server => {
+        vivos.push(gerarBoss(server));
+      });
+    }
+
+    function atualizarSelect() {
+      const select = document.getElementById('servidorSelect');
+      select.innerHTML = '';
+      vivos.forEach(boss => {
+        const option = document.createElement('option');
+        option.value = boss.servidor;
+        option.textContent = boss.servidor;
+        select.appendChild(option);
+      });
+    }
+
+    function atualizarListas() {
+      const vivosEl = document.getElementById('vivos');
+      const mortosEl = document.getElementById('mortos');
+      vivosEl.innerHTML = '';
+      mortosEl.innerHTML = '';
+
+      vivos.forEach(boss => {
+        vivosEl.innerHTML += `<li>${boss.servidor}</li>`;
+      });
+
+      mortos.forEach(boss => {
+        mortosEl.innerHTML += `<li>${boss.servidor}</li>`;
+      });
+
+      atualizarSelect();
+    }
+
+    function matarBoss() {
+      const select = document.getElementById('servidorSelect');
+      const servidor = select.value;
+      const index = vivos.findIndex(b => b.servidor === servidor);
+
+      if (index !== -1) {
+        const morto = vivos.splice(index, 1)[0];
+        mortos.push(morto);
+      }
+
+      if (vivos.length === 4 && mortos.length > 0) {
+        const ressuscitado = mortos.shift(); // mais antigo
+        vivos.push(ressuscitado);
+      }
+
+      atualizarListas();
+    }
+
+    // Inicialização
+    iniciarBosses();
+    atualizarListas();
+  </script>
+</body>
+</html>
