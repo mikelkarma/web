@@ -1,53 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rankings</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ranking da Guild</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
-  <div class="max-w-3xl mx-auto mt-12 space-y-8">
-    <!-- Título principal -->
-    <div class="text-center">
-      <h1 class="text-2xl font-bold text-gray-800">🏆 Rankings Atuais</h1>
-      <p class="text-sm text-gray-500 mt-1">Quer participar do sistema de rankeamento? Me chama no PV! Dmn Narkiel</p>
+<body class="bg-gray-50 text-gray-800">
+  <div class="max-w-2xl mx-auto mt-12 px-4">
+    <div class="text-center mb-10">
+      <h1 class="text-3xl font-bold mb-2">🏅 Ranking da Guild: <span class="text-indigo-600">DMN</span></h1>
+      <p class="text-sm text-gray-500">Quer participar do sistema de rankeamento? Me chama no PV!</p>
     </div>
 
     <div id="rankingsContainer" class="space-y-6"></div>
   </div>
 
   <script>
+    const medalhas = ["🥇", "🥈", "🥉"];
+
     const categorias = {
       "Kina (melee)": [
-        { nome: "dmn antares", pontos: 513 },
-        { nome: "dmn narkiel", pontos: 482 },
-        { nome: "Raphaelggu", pontos: 413 },
-        { nome: "Tankcuzim", pontos: 376 },
+        { nome: "dmn antares", skill: "Kina" },
+        { nome: "dmn narkiel", skill: "Kina" },
+        { nome: "Raphaelggu", skill: "Kina" },
+        { nome: "Tankcuzim", skill: "Kina" },
       ],
       "Mage (magic)": [
-        { nome: "Dmn Shin", pontos: 626 },
-        { nome: "lorddix", pontos: 488 },
-        { nome: "Sem dormir", pontos: 465 },
-        { nome: "Dmn Calango", pontos: 366 },
-        { nome: "The Katre", pontos: 357 },
-        { nome: "Sun Blede", pontos: 351 },
-        { nome: "dmn narkiel", pontos: 270 },
+        { nome: "Dmn Shin", skill: "Mage" },
+        { nome: "lorddix", skill: "Mage" },
+        { nome: "Sem dormir", skill: "Mage" },
+        { nome: "Dmn Calango", skill: "Mage" },
+        { nome: "The Katre", skill: "Mage" },
+        { nome: "Sun Blede", skill: "Mage" },
+        { nome: "dmn narkiel", skill: "Mage" },
       ],
       "Pally (distance)": [
-        { nome: "dmn narkiel", pontos: 364 },
-        { nome: "Ociastwo", pontos: 345 },
+        { nome: "dmn narkiel", skill: "Pally" },
+        { nome: "Ociastwo", skill: "Pally" },
       ],
       "Def (defense)": [
-        { nome: "lorddix", pontos: 470 },
-        { nome: "Sem dormir", pontos: 450 },
-        { nome: "dmn narkiel", pontos: 447 },
-        { nome: "The Katre", pontos: 403 },
-        { nome: "Raphaelggu", pontos: 381 },
-        { nome: "Dmn Calango", pontos: 380 },
-        { nome: "Sun Blede", pontos: 367 },
-        { nome: "Tankcuzim", pontos: 336 },
-        { nome: "Ociastwo", pontos: 323 },
+        { nome: "lorddix", skill: "Def" },
+        { nome: "Sem dormir", skill: "Def" },
+        { nome: "dmn narkiel", skill: "Def" },
+        { nome: "The Katre", skill: "Def" },
+        { nome: "Raphaelggu", skill: "Def" },
+        { nome: "Dmn Calango", skill: "Def" },
+        { nome: "Sun Blede", skill: "Def" },
+        { nome: "Tankcuzim", skill: "Def" },
+        { nome: "Ociastwo", skill: "Def" },
       ],
     };
 
@@ -55,13 +56,13 @@
 
     for (const [categoria, jogadores] of Object.entries(categorias)) {
       const section = document.createElement("div");
-      section.className = "bg-white shadow rounded-md overflow-hidden";
+      section.className = "bg-white border border-gray-200 rounded-lg";
 
       section.innerHTML = `
-        <div class="bg-gray-200 px-4 py-2">
-          <h2 class="text-lg font-semibold text-gray-800">⭐ ${categoria}</h2>
+        <div class="bg-gray-100 px-4 py-2 rounded-t-md">
+          <h2 class="text-lg font-semibold">${categoria}</h2>
         </div>
-        <ul class="divide-y divide-gray-200" id="lista-${categoria.replace(/\W+/g, '')}"></ul>
+        <ul class="divide-y divide-gray-100" id="lista-${categoria.replace(/\W+/g, '')}"></ul>
       `;
 
       container.appendChild(section);
@@ -72,11 +73,13 @@
         const li = document.createElement("li");
         li.className = "flex items-center px-4 py-3";
 
+        const medalha = medalhas[i] || `${i + 1}.`;
+
         li.innerHTML = `
-          <span class="w-6 text-gray-700 font-semibold mr-3">${i + 1}.</span>
-          <div class="flex-1">
-            <p class="text-gray-800 font-medium">${jogador.nome}</p>
-            <p class="text-gray-600 text-sm">${jogador.pontos} pontos</p>
+          <span class="w-8 font-bold text-lg">${medalha}</span>
+          <div class="ml-2">
+            <p class="text-base font-medium">${jogador.nome}</p>
+            <p class="text-sm text-gray-500">${jogador.skill}</p>
           </div>
         `;
 
