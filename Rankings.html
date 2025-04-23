@@ -5,9 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ranking da Guild Demon</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
-  <div class="max-w-2xl mx-auto mt-10 px-4 sm:px-6 lg:px-8">
+
+  <!-- Menu Bar -->
+  <nav class="fixed top-0 w-full bg-white shadow z-50">
+    <div class="max-w-2xl mx-auto flex justify-between items-center px-4 py-2 text-sm font-medium text-indigo-600 space-x-4 overflow-x-auto">
+      <a href="#Kina" class="hover:underline">Kina</a>
+      <a href="#Mage" class="hover:underline">Mage</a>
+      <a href="#Pally" class="hover:underline">Pally</a>
+      <a href="#Def" class="hover:underline">Def</a>
+      <a href="#Level" class="hover:underline">Level</a>
+    </div>
+  </nav>
+
+  <!-- Conteúdo -->
+  <div class="max-w-2xl mx-auto mt-20 px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-8">
       <h1 class="text-2xl sm:text-3xl font-bold mb-2">🏅 Ranking da Guild: <span class="text-indigo-600">Demon</span></h1>
       <p class="text-sm text-gray-500">Quer participar do sistema de rankeamento? Me chama no PV! Dmn Narkiel</p>
@@ -16,109 +34,112 @@
     <div id="rankingsContainer" class="space-y-6"></div>
   </div>
 
-  <!-- ...mantém tudo igual acima... -->
-<script>
-  const medalhas = ["🥇", "🥈", "🥉"];
+  <script>
+    const medalhas = ["🥇", "🥈", "🥉"];
 
-  const categorias = {
-    "Kina (melee)": [
-      { nome: "dmn antares", skill: "Kina" },
-      { nome: "dmn narkiel", skill: "Kina" },
-      { nome: "Raphaelggu", skill: "Kina" },
-      { nome: "Tankcuzim", skill: "Kina" },
-    ],
-    "Mage (magic)": [
-      { nome: "Dmn Shin", skill: "Mage" },
-      { nome: "lorddix", skill: "Mage" },
-      { nome: "Sem dormir", skill: "Mage" },
-      { nome: "Dmn Calango", skill: "Mage" },
-      { nome: "The Katre", skill: "Mage" },
-      { nome: "Sun Blede", skill: "Mage" },
-      { nome: "dmn narkiel", skill: "Mage" },
-    ],
-    "Pally (distance)": [
-      { nome: "dmn narkiel", skill: "Pally" },
-      { nome: "Ociastwo", skill: "Pally" },
-    ],
-    "Def (defense)": [
-      { nome: "lorddix", skill: "Def" },
-      { nome: "Sem dormir", skill: "Def" },
-      { nome: "dmn narkiel", skill: "Def" },
-      { nome: "The Katre", skill: "Def" },
-      { nome: "Raphaelggu", skill: "Def" },
-      { nome: "Dmn Calango", skill: "Def" },
-      { nome: "Sun Blede", skill: "Def" },
-      { nome: "Tankcuzim", skill: "Def" },
-      { nome: "Ociastwo", skill: "Def" },
-    ],
-    "Level (geral)": [
-      { nome: "Dmn Shin", skill: "687" },
-      { nome: "Tsubaki Drakkar", skill: "595" },
-      { nome: "Leo Is Magic Xl", skill: "546" },
-      { nome: "Chaos Taqueray", skill: "518" },
-      { nome: "Dmn Antares", skill: "475" },
-      { nome: "Dmn Narkiel", skill: "475" },
-      { nome: "Eusouafoca Dnv", skill: "430" },
-      { nome: "Snd Gustavo Il", skill: "425" },
-      { nome: "Kaio Rhian Ooo", skill: "425" },
-      { nome: "Bds Titan", skill: "425" },
-      { nome: "Bowceta", skill: "428" },
-      { nome: "Policeaiiiii", skill: "421" },
-      { nome: "Evil Kokay", skill: "420" },
-      { nome: "Jparence", skill: "399" },
-      { nome: "Snack Vip", skill: "399" },
-      { nome: "Il Rethos Il", skill: "407" },
-      { nome: "Sem Dormir", skill: "406" },
-      { nome: "Raphaelggu", skill: "383" },
-      { nome: "Daviquebrado", skill: "381" },
-      { nome: "Grminho", skill: "379" },
-      { nome: "Dmn Calango", skill: "376" },
-      { nome: "Kaio Haker", skill: "375" },
-      { nome: "The Katre", skill: "375" },
-      { nome: "Ociastwo", skill: "375" },
-      { nome: "Lord Darckxp", skill: "367" },
-      { nome: "Minimega", skill: "369" },
-      { nome: "Camilloxp", skill: "372" },
-      { nome: "Bh Hayato", skill: "358" },
-      { nome: "Lord Kime", skill: "354" },
-      { nome: "Dmn Shadow", skill: "364" }
-    ],
-  };
+    const categorias = {
+      "Kina (melee)": [
+        { nome: "dmn antares", skill: "513" },
+        { nome: "dmn narkiel", skill: "482" },
+        { nome: "Raphaelggu", skill: "413" },
+        { nome: "Tankcuzim", skill: "376" },
+      ],
+      "Mage (magic)": [
+        { nome: "Dmn Shin", skill: "626" },
+        { nome: "lorddix", skill: "488" },
+        { nome: "Sem dormir", skill: "465" },
+        { nome: "Dmn Calango", skill: "366" },
+        { nome: "The Katre", skill: "357" },
+        { nome: "Sun Blede", skill: "351" },
+        { nome: "dmn narkiel", skill: "270" },
+      ],
+      "Pally (distance)": [
+        { nome: "dmn narkiel", skill: "364" },
+        { nome: "Dmn Shin", skill: "324" },
+        { nome: "Ociastwo", skill: "345" },
+      ],
+      "Def (defense)": [
+        { nome: "Dmn Shin", skill: "574" },
+        { nome: "lorddix", skill: "470" },
+        { nome: "Sem dormir", skill: "450" },
+        { nome: "dmn narkiel", skill: "447" },
+        { nome: "The Katre", skill: "403" },
+        { nome: "Raphaelggu", skill: "381" },
+        { nome: "Dmn Calango", skill: "380" },
+        { nome: "Sun Blede", skill: "367" },
+        { nome: "Tankcuzim", skill: "336" },
+        { nome: "Ociastwo", skill: "323" },
+      ],
+      "Level (geral)": [
+        { nome: "Dmn Shin", skill: "687" },
+        { nome: "Tsubaki Drakkar", skill: "595" },
+        { nome: "Leo Is Magic Xl", skill: "546" },
+        { nome: "Chaos Taqueray", skill: "518" },
+        { nome: "Dmn Antares", skill: "475" },
+        { nome: "Dmn Narkiel", skill: "475" },
+        { nome: "Eusouafoca Dnv", skill: "430" },
+        { nome: "Snd Gustavo Il", skill: "425" },
+        { nome: "Kaio Rhian Ooo", skill: "425" },
+        { nome: "Bds Titan", skill: "425" },
+        { nome: "Bowceta", skill: "428" },
+        { nome: "Policeaiiiii", skill: "421" },
+        { nome: "Evil Kokay", skill: "420" },
+        { nome: "Jparence", skill: "399" },
+        { nome: "Snack Vip", skill: "399" },
+        { nome: "Il Rethos Il", skill: "407" },
+        { nome: "Sem Dormir", skill: "406" },
+        { nome: "Raphaelggu", skill: "383" },
+        { nome: "Daviquebrado", skill: "381" },
+        { nome: "Grminho", skill: "379" },
+        { nome: "Dmn Calango", skill: "376" },
+        { nome: "Kaio Haker", skill: "375" },
+        { nome: "The Katre", skill: "375" },
+        { nome: "Ociastwo", skill: "375" },
+        { nome: "Lord Darckxp", skill: "367" },
+        { nome: "Minimega", skill: "369" },
+        { nome: "Camilloxp", skill: "372" },
+        { nome: "Bh Hayato", skill: "358" },
+        { nome: "Lord Kime", skill: "354" },
+        { nome: "Dmn Shadow", skill: "364" }
+      ],
+    };
 
-  const container = document.getElementById("rankingsContainer");
+    const container = document.getElementById("rankingsContainer");
 
-  for (const [categoria, jogadores] of Object.entries(categorias)) {
-    const section = document.createElement("div");
-    section.className = "bg-white border border-gray-200 rounded-lg shadow-sm";
+    for (const [categoria, jogadores] of Object.entries(categorias)) {
+      const id = categoria.split(" ")[0]; // ID para navegação
+      const section = document.createElement("div");
+      section.className = "bg-white border border-gray-200 rounded-lg shadow-sm";
+      section.id = id;
 
-    section.innerHTML = `
-      <div class="bg-gray-100 px-4 py-2 rounded-t-md">
-        <h2 class="text-lg font-semibold">${categoria}</h2>
-      </div>
-      <ul class="divide-y divide-gray-100" id="lista-${categoria.replace(/\W+/g, '')}"></ul>
-    `;
-
-    container.appendChild(section);
-
-    const lista = section.querySelector("ul");
-
-    jogadores.forEach((jogador, i) => {
-      const li = document.createElement("li");
-      li.className = "flex items-center px-4 py-3";
-
-      const medalha = medalhas[i] || `${i + 1}.`;
-
-      li.innerHTML = `
-        <span class="w-8 font-bold text-lg">${medalha}</span>
-        <div class="ml-2">
-          <p class="text-base font-medium truncate max-w-[80vw]">${jogador.nome}</p>
-          <p class="text-sm text-gray-500">${categoria.includes("Level") ? "Level " + jogador.skill : jogador.skill}</p>
+      section.innerHTML = `
+        <div class="bg-gray-100 px-4 py-2 rounded-t-md">
+          <h2 class="text-lg font-semibold">${categoria}</h2>
         </div>
+        <ul class="divide-y divide-gray-100" id="lista-${id}"></ul>
       `;
 
-      lista.appendChild(li);
-    });
-  }
-</script>
+      container.appendChild(section);
+
+      const lista = section.querySelector("ul");
+
+      jogadores.forEach((jogador, i) => {
+        const li = document.createElement("li");
+        li.className = "flex items-center px-4 py-3";
+
+        const medalha = medalhas[i] || `${i + 1}.`;
+
+        li.innerHTML = `
+          <span class="w-8 font-bold text-lg">${medalha}</span>
+          <div class="ml-2">
+            <p class="text-base font-medium truncate max-w-[80vw]">${jogador.nome}</p>
+            <p class="text-sm text-gray-500">${categoria.includes("Level") ? "Level " + jogador.skill : jogador.skill}</p>
+          </div>
+        `;
+
+        lista.appendChild(li);
+      });
+    }
+  </script>
 </body>
 </html>
