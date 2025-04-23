@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rankings</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <div class="max-w-3xl mx-auto mt-12 space-y-8">
+    <!-- Título principal -->
+    <div class="text-center">
+      <h1 class="text-2xl font-bold text-gray-800">🏆 Rankings Atuais</h1>
+      <p class="text-sm text-gray-500 mt-1">Quer participar do sistema de rankeamento? Me chama no PV!</p>
+    </div>
+
+    <div id="rankingsContainer" class="space-y-6"></div>
+  </div>
+
+  <script>
+    const categorias = {
+      "Kina (melee)": [
+        { nome: "dmn antares", pontos: 513 },
+        { nome: "dmn narkiel", pontos: 482 },
+        { nome: "Raphaelggu", pontos: 413 },
+        { nome: "Tankcuzim", pontos: 376 },
+      ],
+      "Mage (magic)": [
+        { nome: "Dmn Shin", pontos: 626 },
+        { nome: "lorddix", pontos: 488 },
+        { nome: "Sem dormir", pontos: 465 },
+        { nome: "Dmn Calango", pontos: 366 },
+        { nome: "The Katre", pontos: 357 },
+        { nome: "Sun Blede", pontos: 351 },
+        { nome: "dmn narkiel", pontos: 270 },
+      ],
+      "Pally (distance)": [
+        { nome: "dmn narkiel", pontos: 364 },
+        { nome: "Ociastwo", pontos: 345 },
+      ],
+      "Def (defense)": [
+        { nome: "lorddix", pontos: 470 },
+        { nome: "Sem dormir", pontos: 450 },
+        { nome: "dmn narkiel", pontos: 447 },
+        { nome: "The Katre", pontos: 403 },
+        { nome: "Raphaelggu", pontos: 381 },
+        { nome: "Dmn Calango", pontos: 380 },
+        { nome: "Sun Blede", pontos: 367 },
+        { nome: "Tankcuzim", pontos: 336 },
+        { nome: "Ociastwo", pontos: 323 },
+      ],
+    };
+
+    const container = document.getElementById("rankingsContainer");
+
+    for (const [categoria, jogadores] of Object.entries(categorias)) {
+      const section = document.createElement("div");
+      section.className = "bg-white shadow rounded-md overflow-hidden";
+
+      section.innerHTML = `
+        <div class="bg-gray-200 px-4 py-2">
+          <h2 class="text-lg font-semibold text-gray-800">⭐ ${categoria}</h2>
+        </div>
+        <ul class="divide-y divide-gray-200" id="lista-${categoria.replace(/\W+/g, '')}"></ul>
+      `;
+
+      container.appendChild(section);
+
+      const lista = section.querySelector("ul");
+
+      jogadores.forEach((jogador, i) => {
+        const li = document.createElement("li");
+        li.className = "flex items-center px-4 py-3";
+
+        li.innerHTML = `
+          <span class="w-6 text-gray-700 font-semibold mr-3">${i + 1}.</span>
+          <div class="flex-1">
+            <p class="text-gray-800 font-medium">${jogador.nome}</p>
+            <p class="text-gray-600 text-sm">${jogador.pontos} pontos</p>
+          </div>
+        `;
+
+        lista.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
