@@ -16,76 +16,109 @@
     <div id="rankingsContainer" class="space-y-6"></div>
   </div>
 
-  <script>
-    const medalhas = ["🥇", "🥈", "🥉"];
+  <!-- ...mantém tudo igual acima... -->
+<script>
+  const medalhas = ["🥇", "🥈", "🥉"];
 
-    const categorias = {
-      "Kina (melee)": [
-        { nome: "dmn antares", skill: "Kina" },
-        { nome: "dmn narkiel", skill: "Kina" },
-        { nome: "Raphaelggu", skill: "Kina" },
-        { nome: "Tankcuzim", skill: "Kina" },
-      ],
-      "Mage (magic)": [
-        { nome: "Dmn Shin", skill: "Mage" },
-        { nome: "lorddix", skill: "Mage" },
-        { nome: "Sem dormir", skill: "Mage" },
-        { nome: "Dmn Calango", skill: "Mage" },
-        { nome: "The Katre", skill: "Mage" },
-        { nome: "Sun Blede", skill: "Mage" },
-        { nome: "dmn narkiel", skill: "Mage" },
-      ],
-      "Pally (distance)": [
-        { nome: "dmn narkiel", skill: "Pally" },
-        { nome: "Ociastwo", skill: "Pally" },
-      ],
-      "Def (defense)": [
-        { nome: "lorddix", skill: "Def" },
-        { nome: "Sem dormir", skill: "Def" },
-        { nome: "dmn narkiel", skill: "Def" },
-        { nome: "The Katre", skill: "Def" },
-        { nome: "Raphaelggu", skill: "Def" },
-        { nome: "Dmn Calango", skill: "Def" },
-        { nome: "Sun Blede", skill: "Def" },
-        { nome: "Tankcuzim", skill: "Def" },
-        { nome: "Ociastwo", skill: "Def" },
-      ],
-    };
+  const categorias = {
+    "Kina (melee)": [
+      { nome: "dmn antares", skill: "Kina" },
+      { nome: "dmn narkiel", skill: "Kina" },
+      { nome: "Raphaelggu", skill: "Kina" },
+      { nome: "Tankcuzim", skill: "Kina" },
+    ],
+    "Mage (magic)": [
+      { nome: "Dmn Shin", skill: "Mage" },
+      { nome: "lorddix", skill: "Mage" },
+      { nome: "Sem dormir", skill: "Mage" },
+      { nome: "Dmn Calango", skill: "Mage" },
+      { nome: "The Katre", skill: "Mage" },
+      { nome: "Sun Blede", skill: "Mage" },
+      { nome: "dmn narkiel", skill: "Mage" },
+    ],
+    "Pally (distance)": [
+      { nome: "dmn narkiel", skill: "Pally" },
+      { nome: "Ociastwo", skill: "Pally" },
+    ],
+    "Def (defense)": [
+      { nome: "lorddix", skill: "Def" },
+      { nome: "Sem dormir", skill: "Def" },
+      { nome: "dmn narkiel", skill: "Def" },
+      { nome: "The Katre", skill: "Def" },
+      { nome: "Raphaelggu", skill: "Def" },
+      { nome: "Dmn Calango", skill: "Def" },
+      { nome: "Sun Blede", skill: "Def" },
+      { nome: "Tankcuzim", skill: "Def" },
+      { nome: "Ociastwo", skill: "Def" },
+    ],
+    "Level (geral)": [
+      { nome: "Dmn Shin", skill: "687" },
+      { nome: "Tsubaki Drakkar", skill: "595" },
+      { nome: "Leo Is Magic Xl", skill: "546" },
+      { nome: "Chaos Taqueray", skill: "518" },
+      { nome: "Dmn Antares", skill: "475" },
+      { nome: "Dmn Narkiel", skill: "475" },
+      { nome: "Eusouafoca Dnv", skill: "430" },
+      { nome: "Snd Gustavo Il", skill: "425" },
+      { nome: "Kaio Rhian Ooo", skill: "425" },
+      { nome: "Bds Titan", skill: "425" },
+      { nome: "Bowceta", skill: "428" },
+      { nome: "Policeaiiiii", skill: "421" },
+      { nome: "Evil Kokay", skill: "420" },
+      { nome: "Jparence", skill: "399" },
+      { nome: "Snack Vip", skill: "399" },
+      { nome: "Il Rethos Il", skill: "407" },
+      { nome: "Sem Dormir", skill: "406" },
+      { nome: "Raphaelggu", skill: "383" },
+      { nome: "Daviquebrado", skill: "381" },
+      { nome: "Grminho", skill: "379" },
+      { nome: "Dmn Calango", skill: "376" },
+      { nome: "Kaio Haker", skill: "375" },
+      { nome: "The Katre", skill: "375" },
+      { nome: "Ociastwo", skill: "375" },
+      { nome: "Lord Darckxp", skill: "367" },
+      { nome: "Minimega", skill: "369" },
+      { nome: "Camilloxp", skill: "372" },
+      { nome: "Bh Hayato", skill: "358" },
+      { nome: "Lord Kime", skill: "354" },
+      { nome: "Dmn Shadow", skill: "364" }
+    ],
+  };
 
-    const container = document.getElementById("rankingsContainer");
+  const container = document.getElementById("rankingsContainer");
 
-    for (const [categoria, jogadores] of Object.entries(categorias)) {
-      const section = document.createElement("div");
-      section.className = "bg-white border border-gray-200 rounded-lg shadow-sm";
+  for (const [categoria, jogadores] of Object.entries(categorias)) {
+    const section = document.createElement("div");
+    section.className = "bg-white border border-gray-200 rounded-lg shadow-sm";
 
-      section.innerHTML = `
-        <div class="bg-gray-100 px-4 py-2 rounded-t-md">
-          <h2 class="text-lg font-semibold">${categoria}</h2>
+    section.innerHTML = `
+      <div class="bg-gray-100 px-4 py-2 rounded-t-md">
+        <h2 class="text-lg font-semibold">${categoria}</h2>
+      </div>
+      <ul class="divide-y divide-gray-100" id="lista-${categoria.replace(/\W+/g, '')}"></ul>
+    `;
+
+    container.appendChild(section);
+
+    const lista = section.querySelector("ul");
+
+    jogadores.forEach((jogador, i) => {
+      const li = document.createElement("li");
+      li.className = "flex items-center px-4 py-3";
+
+      const medalha = medalhas[i] || `${i + 1}.`;
+
+      li.innerHTML = `
+        <span class="w-8 font-bold text-lg">${medalha}</span>
+        <div class="ml-2">
+          <p class="text-base font-medium truncate max-w-[80vw]">${jogador.nome}</p>
+          <p class="text-sm text-gray-500">${categoria.includes("Level") ? "Level " + jogador.skill : jogador.skill}</p>
         </div>
-        <ul class="divide-y divide-gray-100" id="lista-${categoria.replace(/\W+/g, '')}"></ul>
       `;
 
-      container.appendChild(section);
-
-      const lista = section.querySelector("ul");
-
-      jogadores.forEach((jogador, i) => {
-        const li = document.createElement("li");
-        li.className = "flex items-center px-4 py-3";
-
-        const medalha = medalhas[i] || `${i + 1}.`;
-
-        li.innerHTML = `
-          <span class="w-8 font-bold text-lg">${medalha}</span>
-          <div class="ml-2">
-            <p class="text-base font-medium truncate max-w-[80vw]">${jogador.nome}</p>
-            <p class="text-sm text-gray-500">${jogador.skill}</p>
-          </div>
-        `;
-
-        lista.appendChild(li);
-      });
-    }
-  </script>
+      lista.appendChild(li);
+    });
+  }
+</script>
 </body>
 </html>
