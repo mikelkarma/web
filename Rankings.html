@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ranking da Guild Demon</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  
   <style>
     html {
       scroll-behavior: smooth;
@@ -33,80 +34,127 @@
 
     <div id="rankingsContainer" class="space-y-6"></div>
   </div>
+  <style>* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+header, footer {
+  background: #222;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 20px;
+  justify-content: center;
+}
+
+.box {
+  background: #eee;
+  padding: 20px;
+  flex: 1 1 300px;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Responsivo extra */
+@media (max-width: 600px) {
+  .box {
+    flex: 1 1 100%;
+  }
+}</style>
 
   <script>
     const medalhas = ["🥇", "🥈", "🥉"];
 
     const categorias = {
-      "Kina (melee)": [
-        { nome: "dmn antares", skill: "513" },
-        { nome: "dmn narkiel", skill: "482" },
-        { nome: "Raphaelggu", skill: "413" },
-        { nome: "Tankcuzim", skill: "376" },
-        { nome: "Dmn Shin", skill: "329" },
-        { nome: "Tsubaki Drakkar", skill: "340" },
-      ],
-      "Mage (magic)": [
-        { nome: "Dmn Shin", skill: "626" },
-        { nome: "lorddix", skill: "488" },
-        { nome: "Sem dormir", skill: "465" },
-        { nome: "Dmn Calango", skill: "366" },
-        { nome: "The Katre", skill: "357" },
-        { nome: "Tsubaki Drakkar", skill: "318" },
-        { nome: "Sun Blede", skill: "351" },
-        { nome: "dmn narkiel", skill: "270" },
-      ],
-      "Pally (distance)": [
-        { nome: "dmn narkiel", skill: "364" },
-        { nome: "Dmn Shin", skill: "324" },
-        { nome: "Tsubaki Drakkar", skill: "544" },
-        { nome: "Ociastwo", skill: "345" },
-      ],
-      "Def (defense)": [
-        { nome: "Dmn Shin", skill: "574" },
-        { nome: "lorddix", skill: "470" },
-        { nome: "Sem dormir", skill: "450" },
-        { nome: "dmn narkiel", skill: "447" },
-        { nome: "The Katre", skill: "403" },
-        { nome: "Raphaelggu", skill: "381" },
-        { nome: "Dmn Calango", skill: "380" },
-        { nome: "Sun Blede", skill: "367" },
-        { nome: "Tankcuzim", skill: "336" },
-        { nome: "Ociastwo", skill: "323" },
-      ],
-      "Level (geral)": [
-        { nome: "Dmn Shin", skill: "687" },
-        { nome: "Tsubaki Drakkar", skill: "595" },
-        { nome: "Leo Is Magic Xl", skill: "546" },
-        { nome: "Chaos Taqueray", skill: "518" },
-        { nome: "Dmn Antares", skill: "475" },
-        { nome: "Dmn Narkiel", skill: "475" },
-        { nome: "Eusouafoca Dnv", skill: "430" },
-        { nome: "Snd Gustavo Il", skill: "425" },
-        { nome: "Kaio Rhian Ooo", skill: "425" },
-        { nome: "Bds Titan", skill: "425" },
-        { nome: "Bowceta", skill: "428" },
-        { nome: "Policeaiiiii", skill: "421" },
-        { nome: "Evil Kokay", skill: "420" },
-        { nome: "Jparence", skill: "399" },
-        { nome: "Snack Vip", skill: "399" },
-        { nome: "Il Rethos Il", skill: "407" },
-        { nome: "Sem Dormir", skill: "406" },
-        { nome: "Raphaelggu", skill: "383" },
-        { nome: "Daviquebrado", skill: "381" },
-        { nome: "Grminho", skill: "379" },
-        { nome: "Dmn Calango", skill: "376" },
-        { nome: "Kaio Haker", skill: "375" },
-        { nome: "The Katre", skill: "375" },
-        { nome: "Ociastwo", skill: "375" },
-        { nome: "Lord Darckxp", skill: "367" },
-        { nome: "Minimega", skill: "369" },
-        { nome: "Camilloxp", skill: "372" },
-        { nome: "Bh Hayato", skill: "358" },
-        { nome: "Lord Kime", skill: "354" },
-        { nome: "Dmn Shadow", skill: "364" }
-      ],
-    };
+  "Kina (melee)": [
+    { nome: "dmn antares", skill: "513" },
+    { nome: "dmn narkiel", skill: "482" },
+    { nome: "Raphaelggu", skill: "413" },
+    { nome: "Tankcuzim", skill: "376" },
+    { nome: "Idk yuta", skill: "400" },
+    { nome: "Dmn Shin", skill: "329" },
+    { nome: "Tsubaki Drakkar", skill: "340" },
+  ],
+  "Mage (magic)": [
+    { nome: "Dmn Shin", skill: "626" },
+    { nome: "lorddix", skill: "488" },
+    { nome: "Sem dormir", skill: "465" },
+    { nome: "Dmn Calango", skill: "366" },
+    { nome: "The Katre", skill: "357" },
+    { nome: "Sun Blede", skill: "351" },
+    { nome: "dmn narkiel", skill: "270" },
+    { nome: "Tcku", skill: "425" },
+    { nome: "Tsubaki Drakkar", skill: "318" },
+  ],
+  "Pally (distance)": [
+    { nome: "dmn narkiel", skill: "364" },
+    { nome: "Marang Terap", skill: "442" },
+    { nome: "Ociastwo", skill: "345" },
+    { nome: "Dmn Shin", skill: "324" },
+    { nome: "Tsubaki Drakkar", skill: "544" },
+  ],
+  "Def (defense)": [
+    { nome: "Dmn Shin", skill: "574" },
+    { nome: "lorddix", skill: "470" },
+    { nome: "Sem dormir", skill: "450" },
+    { nome: "dmn narkiel", skill: "447" },
+    { nome: "The Katre", skill: "403" },
+    { nome: "Raphaelggu", skill: "381" },
+    { nome: "Dmn Calango", skill: "380" },
+    { nome: "Marang Terap", skill: "385" },
+    { nome: "Tcku", skill: "384" },
+    { nome: "Idk yuta", skill: "390" },
+    { nome: "Sun Blede", skill: "367" },
+    { nome: "Tankcuzim", skill: "336" },
+    { nome: "Ociastwo", skill: "323" },
+  ],
+  "Level (geral)": [
+    { nome: "Dmn Shin", skill: "687" },
+    { nome: "Tsubaki Drakkar", skill: "595" },
+    { nome: "Leo Is Magic Xl", skill: "546" },
+    { nome: "Chaos Taqueray", skill: "518" },
+    { nome: "Dmn Antares", skill: "475" },
+    { nome: "Dmn Narkiel", skill: "475" },
+    { nome: "Eusouafoca Dnv", skill: "430" },
+    { nome: "Bowceta", skill: "428" },
+    { nome: "Snd Gustavo Il", skill: "425" },
+    { nome: "Kaio Rhian Ooo", skill: "425" },
+    { nome: "Bds Titan", skill: "425" },
+    { nome: "Policeaiiiii", skill: "421" },
+    { nome: "Evil Kokay", skill: "420" },
+    { nome: "Il Rethos Il", skill: "407" },
+    { nome: "Sem Dormir", skill: "406" },
+    { nome: "Marang Terap", skill: "400" },
+    { nome: "Snack Vip", skill: "399" },
+    { nome: "Jparence", skill: "399" },
+    { nome: "Minimega", skill: "369" },
+    { nome: "Camilloxp", skill: "372" },
+    { nome: "Raphaelggu", skill: "383" },
+    { nome: "Daviquebrado", skill: "381" },
+    { nome: "Grminho", skill: "379" },
+    { nome: "Dmn Calango", skill: "376" },
+    { nome: "Kaio Haker", skill: "375" },
+    { nome: "The Katre", skill: "375" },
+    { nome: "Ociastwo", skill: "375" },
+    { nome: "Lord Darckxp", skill: "367" },
+    { nome: "Bh Hayato", skill: "358" },
+    { nome: "Lord Kime", skill: "354" },
+    { nome: "Dmn Shadow", skill: "364" },
+    { nome: "Idk yuta", skill: "298" },
+  ],
+};
 
     const container = document.getElementById("rankingsContainer");
 
