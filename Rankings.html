@@ -5,10 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ranking da Guild Demon</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  
   <style>
     html {
       scroll-behavior: smooth;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
     }
   </style>
 </head>
@@ -17,158 +24,118 @@
   <!-- Menu Bar -->
   <nav class="fixed top-0 w-full bg-white shadow z-50">
     <div class="max-w-2xl mx-auto flex justify-between items-center px-4 py-2 text-sm font-medium text-indigo-600 space-x-4 overflow-x-auto">
-      <a href="#Kina" class="hover:underline">Kina</a>
-      <a href="#Mage" class="hover:underline">Mage</a>
-      <a href="#Pally" class="hover:underline">Pally</a>
-      <a href="#Def" class="hover:underline">Def</a>
-      <a href="#Level" class="hover:underline">Level</a>
+      <a href="#Kina" class="hover:underline transition">Kina</a>
+      <a href="#Mage" class="hover:underline transition">Mage</a>
+      <a href="#Pally" class="hover:underline transition">Pally</a>
+      <a href="#Def" class="hover:underline transition">Def</a>
+      <a href="#Level" class="hover:underline transition">Level</a>
     </div>
   </nav>
 
   <!-- Conteúdo -->
-  <div class="max-w-2xl mx-auto mt-20 px-4 sm:px-6 lg:px-8">
+  <main class="max-w-2xl mx-auto mt-20 px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-8">
-      <h1 class="text-2xl sm:text-3xl font-bold mb-2">🏅 Ranking da Guild: <span class="text-indigo-600">Demon</span></h1>
+      <h1 class="text-3xl font-bold mb-2">🏅 Ranking da Guild: <span class="text-indigo-600">Demon</span></h1>
       <p class="text-sm text-gray-500">Quer participar do sistema de rankeamento? Me chama no PV! Dmn Narkiel</p>
     </div>
-
     <div id="rankingsContainer" class="space-y-6"></div>
-  </div>
-  <style>* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, sans-serif;
-}
-
-header, footer {
-  background: #222;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 20px;
-  gap: 20px;
-  justify-content: center;
-}
-
-.box {
-  background: #eee;
-  padding: 20px;
-  flex: 1 1 300px;
-  max-width: 400px;
-  text-align: center;
-}
-
-/* Responsivo extra */
-@media (max-width: 600px) {
-  .box {
-    flex: 1 1 100%;
-  }
-}</style>
+  </main>
 
   <script>
     const medalhas = ["🥇", "🥈", "🥉"];
-    const medalhas = ["🥇", "🥈", "🥉"];
 
-const categorias = {
-  "Kina (melee)": [
-    { nome: "Raphaelggu", skill: "431" },
-    { nome: "The Katre", skill: "419" },
-    { nome: "Manhsjsj", skill: "405" },
-    { nome: "Dmn Nark", skill: "400" },
-    { nome: "Idk Yuta", skill: "400" },
-    { nome: "Lalo Lindo Br", skill: "337" },
-  ],
-  "Mage (magic)": [
-    { nome: "Dmn Shin", skill: "626" },
-    { nome: "Lorddix", skill: "494" },
-    { nome: "Dmn Nark", skill: "485" },
-    { nome: "Sem Dormir", skill: "465" },
-    { nome: "Icy Lunatyc", skill: "426" },
-    { nome: "Acobaki", skill: "425" },
-    { nome: "Tcku", skill: "425" },
-    { nome: "The Katre", skill: "370" },
-    { nome: "Sun Blade", skill: "361" },
-    { nome: "Sun Blede", skill: "355" },
-    { nome: "Manhsjsj", skill: "332" },
-    { nome: "Evil Kennedy Yt", skill: "288" },
-  ],
-  "Pally (distance)": [
-    { nome: "Marang Terap", skill: "449" },
-    { nome: "Manhsjsj", skill: "443" },
-    { nome: "The Katre", skill: "371" },
-    { nome: "Lord Kime", skill: "353" },
-    { nome: "Ociastwo", skill: "345" },
-    { nome: "Dmn Shin", skill: "324" },
-    { nome: "Lalo Lindo Br", skill: "307" },
-    { nome: "Jparence", skill: "304" },
-    { nome: "Treze Hd", skill: "295" },
-    { nome: "Dmn Nark", skill: "253" },
-  ],
-  "Def (defense)": [
-    { nome: "Dmn Shin", skill: "574" },
-    { nome: "Lorddix", skill: "472" },
-    { nome: "Dmn Nark", skill: "461" },
-    { nome: "Sem Dormir", skill: "450" },
-    { nome: "Manhsjsj", skill: "432" },
-    { nome: "The Katre", skill: "409" },
-    { nome: "Acobaki", skill: "404" },
-    { nome: "Zoico IL Pcr", skill: "403" },
-    { nome: "Marang Terap", skill: "389" },
-    { nome: "Idk Yuta", skill: "390" },
-    { nome: "Raphaelggu", skill: "381" },
-    { nome: "Dmn Calango", skill: "380" },
-    { nome: "Sun Blede", skill: "367" },
-    { nome: "Tankcuzim", skill: "336" },
-    { nome: "Ociastwo", skill: "323" },
-    { nome: "Jparence", skill: "297" },
-    { nome: "Treze Hd", skill: "295" },
-    { nome: "Evil Kennedy Yt", skill: "295" },
-  ],
-  "Level (geral)": [
-    { nome: "Dmn Shin", skill: "689" },
-    { nome: "Tsubaki Drakkar", skill: "596" },
-    { nome: "Leo Is Magic Xl", skill: "546" },
-    { nome: "Chaos Taqueray", skill: "518" },
-    { nome: "Lorddix", skill: "494" },
-    { nome: "Dmn Nark", skill: "483" },
-    { nome: "Marang Terap", skill: "414" },
-    { nome: "Raphaelggu", skill: "431" },
-    { nome: "Eusouafoca Dnv", skill: "430" },
-    { nome: "Snd Gustavo Il", skill: "425" },
-    { nome: "Kaio Rhian Ooo", skill: "425" },
-    { nome: "Bds Titan", skill: "425" },
-    { nome: "Policeaiiiii", skill: "423" },
-    { nome: "Evil Kokay", skill: "420" },
-    { nome: "Il Rethos Il", skill: "407" },
-    { nome: "Sem Dormir", skill: "410" },
-    { nome: "The Katre", skill: "375" },
-    { nome: "Jparence", skill: "403" },
-    { nome: "Lalo Lindo Br", skill: "377" },
-    { nome: "Dmn Calango", skill: "378" },
-    { nome: "Manhsjsj", skill: "454" },
-    { nome: "Idk Yuta", skill: "303" },
-    { nome: "Lord Kime", skill: "354" },
-    { nome: "Treze Hd", skill: "308" },
-    { nome: "Evil Kennedy Yt", skill: "300" },
-  ],
-};
+    const categorias = {
+      "Kina (melee)": [
+        { nome: "Raphaelggu", skill: "431" },
+        { nome: "The Katre", skill: "419" },
+        { nome: "Manhsjsj", skill: "405" },
+        { nome: "Dmn Nark", skill: "400" },
+        { nome: "Idk Yuta", skill: "400" },
+        { nome: "Lalo Lindo Br", skill: "337" },
+      ],
+      "Mage (magic)": [
+        { nome: "Dmn Shin", skill: "626" },
+        { nome: "Lorddix", skill: "494" },
+        { nome: "Dmn Nark", skill: "485" },
+        { nome: "Sem Dormir", skill: "465" },
+        { nome: "Icy Lunatyc", skill: "426" },
+        { nome: "Acobaki", skill: "425" },
+        { nome: "Tcku", skill: "425" },
+        { nome: "The Katre", skill: "370" },
+        { nome: "Sun Blade", skill: "361" },
+        { nome: "Sun Blede", skill: "355" },
+        { nome: "Manhsjsj", skill: "332" },
+        { nome: "Evil Kennedy Yt", skill: "288" },
+      ],
+      "Pally (distance)": [
+        { nome: "Marang Terap", skill: "449" },
+        { nome: "Manhsjsj", skill: "443" },
+        { nome: "The Katre", skill: "371" },
+        { nome: "Lord Kime", skill: "353" },
+        { nome: "Ociastwo", skill: "345" },
+        { nome: "Dmn Shin", skill: "324" },
+        { nome: "Lalo Lindo Br", skill: "307" },
+        { nome: "Jparence", skill: "304" },
+        { nome: "Treze Hd", skill: "295" },
+        { nome: "Dmn Nark", skill: "253" },
+      ],
+      "Def (defense)": [
+        { nome: "Dmn Shin", skill: "574" },
+        { nome: "Lorddix", skill: "472" },
+        { nome: "Dmn Nark", skill: "461" },
+        { nome: "Sem Dormir", skill: "450" },
+        { nome: "Manhsjsj", skill: "432" },
+        { nome: "The Katre", skill: "409" },
+        { nome: "Acobaki", skill: "404" },
+        { nome: "Zoico IL Pcr", skill: "403" },
+        { nome: "Marang Terap", skill: "389" },
+        { nome: "Idk Yuta", skill: "390" },
+        { nome: "Raphaelggu", skill: "381" },
+        { nome: "Dmn Calango", skill: "380" },
+        { nome: "Sun Blede", skill: "367" },
+        { nome: "Tankcuzim", skill: "336" },
+        { nome: "Ociastwo", skill: "323" },
+        { nome: "Jparence", skill: "297" },
+        { nome: "Treze Hd", skill: "295" },
+        { nome: "Evil Kennedy Yt", skill: "295" },
+      ],
+      "Level (geral)": [
+        { nome: "Dmn Shin", skill: "689" },
+        { nome: "Tsubaki Drakkar", skill: "596" },
+        { nome: "Leo Is Magic Xl", skill: "546" },
+        { nome: "Chaos Taqueray", skill: "518" },
+        { nome: "Lorddix", skill: "494" },
+        { nome: "Dmn Nark", skill: "483" },
+        { nome: "Marang Terap", skill: "414" },
+        { nome: "Raphaelggu", skill: "431" },
+        { nome: "Eusouafoca Dnv", skill: "430" },
+        { nome: "Snd Gustavo Il", skill: "425" },
+        { nome: "Kaio Rhian Ooo", skill: "425" },
+        { nome: "Bds Titan", skill: "425" },
+        { nome: "Policeaiiiii", skill: "423" },
+        { nome: "Evil Kokay", skill: "420" },
+        { nome: "Il Rethos Il", skill: "407" },
+        { nome: "Sem Dormir", skill: "410" },
+        { nome: "The Katre", skill: "375" },
+        { nome: "Jparence", skill: "403" },
+        { nome: "Lalo Lindo Br", skill: "377" },
+        { nome: "Dmn Calango", skill: "378" },
+        { nome: "Manhsjsj", skill: "454" },
+        { nome: "Idk Yuta", skill: "303" },
+        { nome: "Lord Kime", skill: "354" },
+        { nome: "Treze Hd", skill: "308" },
+        { nome: "Evil Kennedy Yt", skill: "300" },
+      ],
+    };
 
     const container = document.getElementById("rankingsContainer");
 
     for (const [categoria, jogadores] of Object.entries(categorias)) {
-      jogadores.sort((a, b) => Number(b.skill) - Number(a.skill)); // Ordena corretamente
+      jogadores.sort((a, b) => Number(b.skill) - Number(a.skill));
 
-      const id = categoria.split(" ")[0]; // ID para navegação
-      const section = document.createElement("div");
+      const id = categoria.split(" ")[0];
+
+      const section = document.createElement("section");
       section.className = "bg-white border border-gray-200 rounded-lg shadow-sm";
       section.id = id;
 
@@ -185,7 +152,7 @@ const categorias = {
 
       jogadores.forEach((jogador, i) => {
         const li = document.createElement("li");
-        li.className = "flex items-center px-4 py-3";
+        li.className = "flex items-center px-4 py-3 hover:bg-gray-50 transition";
 
         const medalha = medalhas[i] || `${i + 1}.`;
 
