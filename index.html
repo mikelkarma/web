@@ -2,74 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>DevLog Terminal</title>
+  <title>N O U S</title>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      background-color: black;
-      color: #00ffcc;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 12px;
-    }
-
-    .container {
-      display: flex;
-      min-height: 100vh;
-    }
-
-    .sidebar {
-      width: 160px;
-      background-color: #111;
-      border-right: 2px solid #00ffcc;
-      padding: 10px;
-    }
-
-    .sidebar h2 {
-      font-size: 14px;
-      color: #00ffff;
-      margin-bottom: 8px;
-      border-bottom: 1px dashed #00ffcc;
-    }
-
-    .sidebar a {
-      display: block;
-      color: #00ffcc;
-      text-decoration: none;
-      margin: 6px 0;
-    }
-
-    .sidebar a:hover {
-      text-decoration: underline;
-    }
-
-    .content {
-      flex-grow: 1;
-      padding: 20px;
-    }
-
-    .log-box {
-      border: 1px dashed #00ffcc;
-      padding: 10px;
-      margin-bottom: 15px;
-      background-color: #000000;
-    }
-
-    .log-box h3 {
-      margin: 0 0 5px 0;
-      font-size: 13px;
-      color: #00ffff;
-    }
-
-    .code {
-      background-color: #111;
-      padding: 6px;
-      font-family: 'IBM Plex Mono', monospace;
-      color: #33ff33;
-      font-size: 11px;
-      white-space: pre-wrap;
-    }
-  </style>
+  <link type="text/css" rel="stylesheet" href="./style.css"
 </head>
 <body>
   <div class="container">
@@ -81,33 +16,46 @@ ooooo      ooo   .oooooo.   ooooo     ooo  .oooooo..o
  8   `88b.  8  888      888  888       8   `"Y8888o.  
  8     `88b.8  888      888  888       8       `"Y88b 
  8       `888  `88b    d88'  `88.    .8'  oo     .d8P 
-o8o        `8   `Y8bood8P'     `YbodP'    8""88888P'  
-                                                                  
-                                                                  
-                                                                     
-                                              
+o8o        `8   `Y8bood8P'     `YbodP'    8""88888P'                                       
            </pre>
-      <h2>MENU</h2>
-      <a href="index.html">Home</a>
-      <a href="logs.html">Dev Log</a>
-      <a href="terminal.html">Terminal</a>
-      <a href="#">Downloads</a>
-      <a href="#">About</a>
+      <h2></h2><div style="position: relative; width: 100%;">
+        <img src="/img/wired.gif" style="width: 100%; display: block;" />
+        <div style="
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 132, 255, 0.3); /* roxo com transparência */
+          mix-blend-mode: screen; /* ou 'multiply', veja qual fica melhor */
+          pointer-events: none;">
+        </div>
+      </div>
+      
+
+            <h2></h2>
+      <a href="index.html" style="display: inline-flex; align-items: center; gap: 5px;">
+        <img class="custom-icon" src="/img/computer.png" alt="Home" style="height: 20px;" />
+        Home
+      </a><br>
+
+      <a href="logs.html" style="display: inline-flex; align-items: center; gap: 5px;">
+        <img class="custom-icon" src="/img/note.png" alt="Home" style="height: 20px;" />
+        Dev Log
+      </a><br>  
+        <a href="terminal.html" style="display: inline-flex; align-items: center; gap: 5px;">
+            <img class="custom-icon" src="/img/movie.png" alt="Home" style="height: 20px;" />
+            Terminal
+          </a><br>
+      <a href="#" style="display: inline-flex; align-items: center; gap: 5px;">
+            <img class="custom-icon" src="/img/help_book_cool-4.png" alt="Home" style="height: 20px;" />
+            About
+          </a>
     </div>
     <div class="content">
       <div class="log-box">
-        <h3>[DEV LOG] 23/07/2025</h3>
-        Init complete.<br>
-        NOUS has awakened.<br>
-        Network presence: ∴ online.<br>
-        Entry point: local://dev/nous/core.html<br>
+        <h3>MAIN</h3>
+        Hello world
     </div>
-
-      <div class="log-box">
-        <h3>[LOG 002] 22/08/2025</h3>
-        Hoje eu decidi criar um blog, penso em compartilhar<br>
-        meus projetos. Novidades e coisas que estou fazendo, ou testando.<br>   
-      </div>
 
       
     <div class="footer">
@@ -158,13 +106,10 @@ o8o        `8   `Y8bood8P'     `YbodP'    8""88888P'
             ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                                                                                                                                                                   
            </pre>
            
-    </div>
+    </div></div>
   </div>
 
     </div>
   </div>
 </body>
 </html>
-=======
-hello wolrd :D
->>>>>>> 72bf614c1b349d9aacc66c573094fcfc0044d19b
